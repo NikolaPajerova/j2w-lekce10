@@ -11,14 +11,14 @@
         <thead>
         <tr>
             <th>Název třídy</th>
-            <th>Ttřídní učitel</th>
+            <th>Třídní učitel</th>
         </tr>
         </thead>
         <tbody>
         <tr th:each="tridy: ${seznam}">
-            <!--<a href="/novy" th:href="@{/vyber}" class="btn btn-success">-->
             <td th:text="${tridy.nazev}">třída</td>
             <td th:text="${tridy.tridniUcitel}">učitel</td>
+            <td class="d-flex justify-content-end"><a href="/1" th:href="@{/{id}(id=${tridy.id})}" class="btn btn-primary">Detail</a></td>
         </tr>
         </tbody>
     </table>

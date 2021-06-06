@@ -1,5 +1,6 @@
 package cz.czechitas.java2webapps.lekce10.service;
 
+import com.sun.xml.bind.v2.model.core.ID;
 import cz.czechitas.java2webapps.lekce10.entity.Trida;
 import cz.czechitas.java2webapps.lekce10.repository.TridaRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class TridaService {
         return tridaRepository.findAll();
     }
 
-  /*  public Object zobrazVybranou(ID id) {
+    public Object zobrazVybranou(ID id) {
         return tridaRepository.findById(id);
-    }*/
+    }
 }
