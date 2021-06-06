@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vybraná třída</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="/" th:href="@{/}">Seznam členů</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse"
+                aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        </div>
+    </div>
+</nav>
+
+<main class="container">
+    <table class="u-full-width" th="tridy: ${seznam}">
+        <div>Název třídy: <label th:text="${tridy.nazev}">třída</label></div>
+        <div>Třídní učitel: <label th:text="${tridy.tridniUcitel}">učitel</label></div>
+        <thead>
+        <tr>
+            <th>Žák</th>
+        </tr>
+        </thead>
+        <tbody>
+        <td th:text="${tridy.studenti}">žák</td>
+            <td class="d-flex justify-content-end"><a th:href="@{/{id}(id=${tridy.id})}" class="btn btn-primary">Detail</a></td>
+        </tbody>
+    </table>
+</main>
+</body>
+</html>

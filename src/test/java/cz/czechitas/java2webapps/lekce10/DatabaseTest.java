@@ -64,7 +64,7 @@ public class DatabaseTest {
   @Test
   @Transactional
   void testTrida() {
-    Trida trida = tridaRepository.getOne((short) 1);
+    Trida trida = tridaRepository.getOne( 1);
     logger.debug("Třída s ID=1: {}", trida);
 
     Ucitel ucitel = trida.getTridniUcitel();

@@ -10,6 +10,6 @@ import java.util.Optional;
 /**
  */
 @Repository
-public interface TridaRepository  extends JpaRepository<Trida, Short> {
-    Optional<Trida> findById(ID id);
+public interface TridaRepository  extends JpaRepository<Trida, Integer> {
+    Optional<Trida> findById(Integer id);
 }

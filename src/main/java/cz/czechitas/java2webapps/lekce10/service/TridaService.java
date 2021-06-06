@@ -21,7 +21,7 @@ public class TridaService {
         return tridaRepository.findAll();
     }
 
-    public Object zobrazVybranou(ID id) {
+    public Object zobrazVybranou(Integer id) {
         return tridaRepository.findById(id);
     }
 }

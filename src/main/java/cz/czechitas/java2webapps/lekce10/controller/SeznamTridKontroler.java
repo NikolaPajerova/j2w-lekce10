@@ -36,7 +36,7 @@ public class SeznamTridKontroler {
     }
 
     @GetMapping("/{id:[0-9]+}")
-    public Object detail(@PathVariable ID id) {
+    public Object detail(@PathVariable Integer id) {
         Optional<Trida> trida = tridaRepository.findById(id);
         if (trida.isPresent()) {
             return new ModelAndView("detail")
