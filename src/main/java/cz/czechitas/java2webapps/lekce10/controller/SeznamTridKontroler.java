@@ -35,13 +35,14 @@ public class SeznamTridKontroler {
                 .addObject("seznam", tridaService.zobrazVse());
     }
 
-    @PostMapping("/{id:[0-9]+}")
-    public Object ulozit(@PathVariable ID id, @ModelAttribute("trida") @Valid Trida trida, BindingResult bindingResult) {
-        if (bindingResult.hasErrors()) {
-            return "detail";
+    @GetMapping("/{id:[0-9]+}")
+    public Object detail(@PathVariable ID id) {
+        Optional<Trida> trida = tridaRepository.findById(id);
+        if (trida.isPresent()) {
+            return new ModelAndView("detail")
+                    .addObject("trida", trida.get());
         }
-        tridaService.zobrazVybranou(id);
-        return "redirect:/";
+        return null;
     }
 
 }
