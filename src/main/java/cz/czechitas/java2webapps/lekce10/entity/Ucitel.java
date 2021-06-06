@@ -17,7 +17,7 @@ public class Ucitel {
   private String jmeno;
   private String prijmeni;
 
-  @OneToOne(mappedBy = "tridniUcitel")
+  @OneToOne(mappedBy = "tridniUcitel")  //vazba mezi učitelem a třídou
   private Trida trida;
 
   public Integer getId() {

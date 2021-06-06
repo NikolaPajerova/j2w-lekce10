@@ -20,8 +20,8 @@ public class Trida {
 
   private String nazev;
 
-  @OneToOne(optional = false)
-  @JoinColumn(name = "tridni_ucitel_id")
+  @OneToOne(optional = false)  //třída musí mít povinně třídního učitele
+  @JoinColumn(name = "tridni_ucitel_id")  //odkazuje se na ID učitele
   private Ucitel tridniUcitel;
 
   @OneToMany(mappedBy = "trida")

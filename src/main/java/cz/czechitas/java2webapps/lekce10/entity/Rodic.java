@@ -26,7 +26,7 @@ public class Rodic {
   private String telefon;
 
   @ManyToMany
-  @JoinTable(
+  @JoinTable(  //jaká je vazba a sloupce mezi tabulkami
           name = "student_rodic",
           joinColumns = @JoinColumn(name = "rodic_id"),
           inverseJoinColumns = @JoinColumn(name = "student_id")

@@ -23,7 +23,7 @@ import static org.junit.jupiter.api.Assertions.*;
 /**
  * Třída pro testování přístupu do databáze.
  */
-@SpringBootTest
+@SpringBootTest //test, vekterém bude fungovat Spring
 public class DatabaseTest {
   private final Logger logger = LoggerFactory.getLogger(DatabaseTest.class);
 
@@ -40,8 +40,8 @@ public class DatabaseTest {
     this.ucitelRepository = ucitelRepository;
   }
 
-  @Test
-  @Transactional
+  @Test  // na každou metodu je test, který se musí oanotovat
+  @Transactional  //aby bylo neustálé připojení k databázi, aby se dali případně potom získat data (pomocí getStudenti atp.)
   void testStudent() {
     Student student = studentRepository.getOne(1);
     logger.debug("Student s ID=1: {}", student);
@@ -51,7 +51,7 @@ public class DatabaseTest {
             () -> assertEquals("Kubát", student.getPrijmeni())
     );
 
-    assertEquals(2, student.getRodice().size());
+    assertEquals(2, student.getRodice().size());  //očekávám data s hodnotami ...
     for (Rodic rodic : student.getRodice()) {
       logger.debug("Rodič: {}", rodic);
     }
@@ -84,6 +84,7 @@ public class DatabaseTest {
 
     Trida trida = ucitel.getTrida();
     logger.debug("Je třídní ve třídě: {}", trida);
+    assertNotNull(trida);
   }
 
   @Test

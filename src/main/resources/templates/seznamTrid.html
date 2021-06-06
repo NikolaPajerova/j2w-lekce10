@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Seznam tříd</title>
+</head>
+<body>
+<main class="container">
+    <h1>Seznam tříd</h1>
+    <table class="u-full-width">
+        <thead>
+        <tr>
+            <th>Název třídy</th>
+            <th>Ttřídní učitel</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="tridy: ${seznam}">
+            <!--<a href="/novy" th:href="@{/vyber}" class="btn btn-success">-->
+            <td th:text="${tridy.nazev}">třída</td>
+            <td th:text="${tridy.tridniUcitel}">učitel</td>
+        </tr>
+        </tbody>
+    </table>
+
+</main>
+</body>
+</html>

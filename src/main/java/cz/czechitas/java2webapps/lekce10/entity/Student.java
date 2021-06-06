@@ -32,7 +32,7 @@ public class Student {
   }
 
   @ManyToMany(mappedBy = "deti")
-  @OrderBy("prijmeni, jmeno")
+  @OrderBy("prijmeni, jmeno")  //jakým způsobem seřadní studenty, když je dávám do seznamu
   private List<Rodic> rodice;
 
   public void setId(Integer id) {
