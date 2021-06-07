@@ -21,28 +21,28 @@ import java.util.Optional;
 @Controller
 public class SeznamTridKontroler {
     private final TridaService tridaService;
-    private final TridaRepository tridaRepository;
 
     @Autowired
-    public SeznamTridKontroler(TridaService tridaService, TridaRepository tridaRepository) {
+    public SeznamTridKontroler(TridaService tridaService) {
         this.tridaService = tridaService;
-        this.tridaRepository = tridaRepository;
     }
 
     @GetMapping("/")
-    public ModelAndView seznam() {
+    public ModelAndView seznamTrid() {
         return new ModelAndView("seznamTrid")
                 .addObject("seznam", tridaService.zobrazVse());
     }
 
     @GetMapping("/{id:[0-9]+}")
-    public Object detail(@PathVariable Integer id) {
-        Optional<Trida> trida = tridaRepository.findById(id);
-        if (trida.isPresent()) {
-            return new ModelAndView("detail")
-                    .addObject("trida", trida.get());
-        }
-        return null;
+    public ModelAndView detail(@PathVariable Integer id) {
+        return new ModelAndView("detail")
+                .addObject("trida", tridaService.zobrazVybranou(id));
+    }
+
+    @GetMapping("/student/{id:[0-9]+}")
+    public ModelAndView student(@PathVariable Integer id) {
+        return new ModelAndView("student")
+                .addObject("student",tridaService.zobrazStudenta(id));
     }
 
 }

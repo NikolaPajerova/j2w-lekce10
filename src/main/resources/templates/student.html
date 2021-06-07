@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="cs" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Vybraný student</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+<body>
+<main class="container">
+    <h1>Informace o vybraném studentovi</h1>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th>Jméno:</th>
+            <td th:text="${student.jmeno}">Jméno</td>
+        </tr>
+        <tr>
+            <th>Příjmení:</th>
+            <td th:text="${student.prijmeni}">Příjmení</td>
+        </tr>
+        <tr>
+            <th>Třída:</th>
+            <td>
+                <a th:href="@{/{idTridy}(idTridy=${student.trida.id})}"
+                   th:text="${student.trida.nazev}">
+                </a>
+            </td>
+        </tr>
+        <tr>
+            <th>Jméno rodiče</th>
+            <th>Příjmení rodiče</th>
+            <th>Email</th>
+            <th>Telefon</th>
+        </tr>
+        <tr th:each="rodic:${student.rodice}">
+            <td th:text="${rodic.jmeno}">Jméno</td>
+            <td th:text="${rodic.prijmeni}">Příjmení</td>
+            <td th:text="${rodic.email}">Email</td>
+            <td th:text="${rodic.telefon}">Telefon</td>
+        </tr>
+    </table>
+    <a class="btn btn-primary" href="/" role="button">Seznam tříd</a>
+</main>
+</body>
+</html>
